@@ -1,2 +1,11 @@
 # mkdocs-bulma
-A Bulma theme for MkDocs
+
+bulma for mkdocs
+
+## Installation
+
+    pipenv install mkdocs-bulma
+
+## Configuration
+
+    Add to your mkdocs.yml: `theme: mkdocs_bulma`
