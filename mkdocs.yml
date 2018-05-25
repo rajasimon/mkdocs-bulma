@@ -1,0 +1,7 @@
+site_name: Bulma
+theme:
+    name: null
+    custom_dir: 'bulma'
+pages:
+    - Home: 'index.md'
+    - About: 'about.md'
