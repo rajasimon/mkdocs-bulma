@@ -1,6 +1,6 @@
 <nav class="navbar has-shadow is-transparent">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ page.url }}">
+    <a class="navbar-item" href="/">
       <h1 class="title">{{ config.site_name }}</h1>
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -13,9 +13,24 @@
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
       {% for nav_item in nav %}
-        <a class="navbar-item" href="{{ nav_item.url }}">
-          {{ nav_item.title }}
-        </a>
+        {% if nav_item.children %}
+          <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="{{ nav_item.url }}">
+                {{ nav_item.title }}
+              </a>
+              <div class="navbar-dropdown is-boxed">
+                {% for nav_item in nav_item.children %}
+                  <a class="navbar-item" href="{{ nav_item.url }}">
+                    {{ nav_item.title }}
+                  </a>
+                {% endfor %}
+              </div>
+          </div>
+        {% else %}
+          <a class="navbar-item" href="{{ nav_item.url }}">
+            {{ nav_item.title }}
+          </a>
+        {% endif %}
       {% endfor %}
     </div>
 

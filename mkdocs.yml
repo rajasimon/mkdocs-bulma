@@ -4,4 +4,5 @@ theme:
     custom_dir: 'bulma'
 pages:
     - Home: 'index.md'
-    - About: 'about.md'
+    - Changelog:
+        - 'v0.0.1': 'changelog/v0.0.1.md'
