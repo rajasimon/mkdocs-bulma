@@ -1,33 +1,13 @@
 <aside class="menu">
   {% for toc_item in page.toc %}
     <p class="menu-label">
-        {{ toc_item.title }}
+      {{ toc_item.title }}
     </p>
-    
-    {% if toc_item.children %}
-      {% for toc_item in toc_item.children %}
-        <ul class="menu-list">
-            <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-              {% if toc_item.children %}
-                <ul>
-                  {% for toc_item in toc_item.children %}
-                    <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                    
-                      {% if toc_item.children %}
-                        <ul>
-                          {% for toc_item in toc_item.children %}
-                            <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-                          {% endfor %}
-                        </ul>
-                      {% endif %}
 
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-        </ul>
-      {% endfor %}
+    {% if toc_item.children %}
+      <ul class="menu-list">
+        {% include 'partials/sidebar-item.html' %}
+      </ul>
     {% endif %}
   {% endfor %}
 </aside>
