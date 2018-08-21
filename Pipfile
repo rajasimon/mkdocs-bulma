@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 mkdocs = "*"
-"e1839a8" = {path = ".", editable = true}
 
 [dev-packages]
+mkdocs-bulma = {editable = true, path = "."}
 
 [requires]
 python_version = "3.6"
