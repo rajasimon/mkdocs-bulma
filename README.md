@@ -8,4 +8,4 @@ bulma for mkdocs
 
 ## Configuration
 
-    Add to your mkdocs.yml: `theme: mkdocs_bulma`
+    Add to your mkdocs.yml: `theme: bulma`

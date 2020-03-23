@@ -7,7 +7,8 @@ name = "pypi"
 mkdocs = "*"
 
 [dev-packages]
-mkdocs-bulma = {editable = true, path = "."}
+mkdocs-bulma = {editable = true,path = "."}
+twine = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
