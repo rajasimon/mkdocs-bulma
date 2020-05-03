@@ -15,19 +15,19 @@
       {% for nav_item in nav %}
         {% if nav_item.children %}
           <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="{{ nav_item.url }}">
+              <a class="navbar-link" href="{{ nav_item.url | url}}">
                 {{ nav_item.title }}
               </a>
               <div class="navbar-dropdown is-boxed">
                 {% for nav_item in nav_item.children %}
-                  <a class="navbar-item" href="{{ nav_item.url }}">
+                  <a class="navbar-item" href="{{ nav_item.url | url}}">
                     {{ nav_item.title }}
                   </a>
                 {% endfor %}
               </div>
           </div>
         {% else %}
-          <a class="navbar-item" href="{{ nav_item.url }}">
+          <a class="navbar-item" href="{{ nav_item.url | url}}">
             {{ nav_item.title }}
           </a>
         {% endif %}
