@@ -9,7 +9,7 @@ For mkdocs documentation visit [mkdocs.org](http://mkdocs.org).
 
 ## Configuration
 
-    Add to your mkdocs.yml: `theme: mkdocs_bulma
+    Add to your mkdocs.yml: `theme: bulma`
 
 ## Project layout
 
