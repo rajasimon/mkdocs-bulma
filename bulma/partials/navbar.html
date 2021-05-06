@@ -1,33 +1,40 @@
-<nav class="navbar has-shadow is-transparent">
-  <div class="navbar-brand">
+<nav class="navbar header has-shadow is-transparent is-fixed-top">
+  <div class="navbar-brand is-full">
     <a class="navbar-item" href="/">
       <h1 class="title">{{ config.site_name }}</h1>
     </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+    
+    <a id="show-toc" class="navbar-custom-button burger is-hidden-tablet" aria-label="menu" aria-expanded="false" data-show="quickview" data-target="nav-toc">
+		<span class="icon">
+		  <i class="fas fa-list"></i>
+		</span>
+    </a>
+    
+    <a id="nav-toggle" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-nav">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </a>
   </div>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
+  <div id="navbar-nav" class="navbar-menu">
     <div class="navbar-start">
       {% for nav_item in nav %}
         {% if nav_item.children %}
           <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="{{ nav_item.url | url}}">
+              <a class="navbar-link" href="{{ nav_item.url|url }}">
                 {{ nav_item.title }}
               </a>
               <div class="navbar-dropdown is-boxed">
                 {% for nav_item in nav_item.children %}
-                  <a class="navbar-item" href="{{ nav_item.url | url}}">
+                  <a class="navbar-item" href="{{ nav_item.url|url }}">
                     {{ nav_item.title }}
                   </a>
                 {% endfor %}
               </div>
           </div>
         {% else %}
-          <a class="navbar-item" href="{{ nav_item.url | url}}">
+          <a class="navbar-item" href="{{ nav_item.url|url }}">
             {{ nav_item.title }}
           </a>
         {% endif %}
@@ -38,22 +45,9 @@
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
-              <span class="icon">
-                <i class="fab fa-twitter"></i>
-              </span>
-              <span>
-                Tweet
-              </span>
-            </a>
-          </p>
-          <p class="control">
-            <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip">
-              <span class="icon">
-                <i class="fas fa-download"></i>
-              </span>
-              <span>Download</span>
-            </a>
+			<div id="nav-search" role="search" class="search">
+                <form><input type="search" placeholder="Search docs" id="mkdocs-search-query" /></form>
+            </div>
           </p>
         </div>
       </div>

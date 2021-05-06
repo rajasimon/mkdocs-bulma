@@ -1,13 +1,34 @@
-<aside class="menu">
-  {% for toc_item in page.toc %}
-    <p class="menu-label">
-      {{ toc_item.title }}
-    </p>
+<div id="nav-toc" class="menu sticky">
+  <header class="quickview-header">
+    <p class="has-text-weight-bold">
+		
+		📃 Table of content
+	</p>
+    <span class="delete is-hidden-tablet" data-dismiss="quickview"></span>
+  </header>
 
-    {% if toc_item.children %}
-      <ul class="menu-list">
-        {% include 'partials/sidebar-item.html' %}
-      </ul>
-    {% endif %}
-  {% endfor %}
-</aside>
+  <div class="quickview-body">
+    <div class="quickview-block">
+      {% for toc_item in page.toc %}
+		<p class="menu-label">
+		  {{ toc_item.title }}
+		</p>
+
+		{% if toc_item.children %}
+		  <ul class="menu-list">
+			{% include 'partials/sidebar-item.html' %}
+		  </ul>
+		{% endif %}
+	  {% endfor %}
+    </div>
+  </div>
+
+  {% if page.meta.git_revision_date_localized %}
+    <footer class="quickview-footer is-transparent">
+		<span class="icon has-text-info">
+		  <i class="fas fa-clock"></i>
+		</span>
+		Last update: {{ page.meta.git_revision_date_localized }}
+	</footer>
+  {% endif %} 
+</div>

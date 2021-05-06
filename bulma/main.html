@@ -4,20 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }} - {{ config.site_name }}</title>
-    <link rel="stylesheet" href="{{ base_url }}/assets/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/bulma.min.css'|url }}">
+    <link rel="stylesheet" href="/node_modules/bulma-quickview/dist/css/bulma-quickview.min.css">
+    <link rel="stylesheet" href="{{ '/css/theme.css'|url }}">
+    {%- if config.theme.highlightjs %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/{{ config.theme.hljs_style }}.min.css">
+    {%- endif %}
+    {% for path in config.extra_css %}
+        <link href="{{ path|url }}" rel="stylesheet">
+    {% endfor %}
+    {%- block scripts %}
+		<script type="text/javascript" src="/node_modules/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
+		<script type="text/javascript" src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+        <script> var base_url = {{ base_url | tojson | safe }} </script>
+        <script src="{{ 'js/theme.js'|url }}" defer></script>
+        {%- for path in config['extra_javascript'] %}
+			<script src="{{ path|url }}" defer></script>
+        {%- endfor %}
+	{%- endblock %}
+	{%- block libs %}
+        {%- if config.theme.highlightjs %}
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+			<script>hljs.initHighlightingOnLoad();</script>
+        {%- endif %}
+    {%- endblock %}
   </head>
-  <body>
+  <body id="body">
     {% include 'partials/navbar.html' %}
     <section class="section">
       <div class="container">
         <div class="columns">
-          <div class="column is-one-quarter">
+          <div class="column is-one-quarter-tablet">
             {% include 'partials/sidebar.html' %}
           </div>
           <div class="column">
             <div class="content">
-              {% block content %} {{ page.content }} {% endblock content %}
+              {% block content %} 
+				{{ page.content }}
+			  {% endblock content %}
+              <div class="clear"></div>
             </div>
+            <div id="mkdocs-search-results"></div>
           </div>
         </div>
       </div>

@@ -1,3 +1,11 @@
 # Language for theme localization
 language: en
 
+static_templates:
+    - 404.html
+   
+include_search_page: false
+search_index_only: false
+ 
+highlightjs: true
+hljs_style: vs

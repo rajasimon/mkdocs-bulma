@@ -4,8 +4,11 @@ bulma for mkdocs
 
 ## Installation
 
-    pipenv install mkdocs-bulma
+`pip install mkdocs-bulma`
+   
+Goto in the `bulma` folder located in your **pip packages folder** then run :
+`yarn` or `npm i` 
 
 ## Configuration
 
-    Add to your mkdocs.yml: `theme: bulma`
+Add to your mkdocs.yml: `theme: bulma`
